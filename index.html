@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Velvet Crumb Bakery | Proyecto de Integración de Contenidos Digitales</title>
+<meta name="description" content="Proyecto productivo Velvet Crumb Bakery: repostería artesanal con marca, video, fotografía y redes sociales, desarrollado en el programa de formación en Integración de Contenidos Digitales.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--vino:#5B0F1F;--vino-2:#3A0A14;--hueso:#F3EBDD;--crema:#E9DCC6;--oro:#B08D57;--tinta:#2A1015;--rosa:#C98A93}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:Jost,system-ui,sans-serif;background:var(--hueso);color:var(--tinta);line-height:1.65;font-size:1.05rem}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;line-height:1.08;font-weight:600}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--oro);outline-offset:3px}
+.wrap{width:min(1120px,92%);margin-inline:auto}
+section{padding:clamp(3.5rem,8vw,6.5rem) 0}
+h2{font-size:clamp(2rem,4.6vw,3.3rem);margin-bottom:1rem;color:var(--vino)}
+.lead{max-width:60ch;font-size:1.12rem}
+.btn{display:inline-block;padding:.8rem 1.6rem;border-radius:999px;background:var(--vino);color:var(--hueso);text-decoration:none;font-weight:500;border:2px solid var(--vino);transition:background .2s,color .2s}
+.btn:hover{background:transparent;color:var(--vino)}
+.btn.alt{background:transparent;color:var(--vino)}.btn.alt:hover{background:var(--vino);color:var(--hueso)}
+header{position:sticky;top:0;z-index:20;background:rgba(58,10,20,.96);backdrop-filter:blur(6px)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:68px}
+.bar img{height:52px;width:auto}
+nav ul{display:flex;gap:1.8rem;list-style:none;padding:0}
+nav a{color:var(--hueso);text-decoration:none;font-weight:500;padding:.3rem 0;border-bottom:2px solid transparent}
+nav a:hover{border-color:var(--oro)}
+.burger{display:none;background:none;border:0;color:var(--hueso);font-size:1.9rem;cursor:pointer}
+/* hero */
+.hero{position:relative;padding:0;background:var(--vino)}
+.hero>img{width:100%;aspect-ratio:2048/768;object-fit:cover}
+.hero .in{position:absolute;left:21%;width:56%;top:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 1%;animation:up .9s ease both}
+.hero .in img{width:clamp(90px,11vw,170px);margin-bottom:.4rem}
+.hero h1{font-size:clamp(1.5rem,3.7vw,3.4rem);color:var(--vino)}
+.hero p{font-size:clamp(.8rem,1.3vw,1.15rem);max-width:46ch;margin:.7rem 0 1.1rem}
+.hero .go{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+/* historia */
+.hist{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.hist figure img{border-radius:6px;border:6px solid var(--crema);box-shadow:0 18px 40px -20px var(--vino-2)}
+figcaption{font-size:.85rem;opacity:.75;margin-top:.5rem}
+ol.steps{list-style:none;padding:0;margin-top:1.6rem;counter-reset:s;border-left:2px solid var(--oro)}
+ol.steps li{counter-increment:s;position:relative;padding:0 0 1.1rem 1.7rem}
+ol.steps li::before{content:counter(s);position:absolute;left:-1.05rem;top:-.05rem;width:2rem;height:2rem;border-radius:50%;background:var(--vino);color:var(--hueso);display:grid;place-items:center;font-size:.9rem;font-weight:600}
+ol.steps b{font-family:"Cormorant Garamond",serif;font-size:1.3rem;color:var(--vino)}
+/* carta */
+.carta{background:var(--vino);color:var(--hueso)}
+.carta h2{color:var(--hueso)}
+.gal{columns:3 260px;column-gap:1.2rem;margin-top:2.2rem}
+.gal figure{break-inside:avoid;margin-bottom:1.2rem;position:relative;overflow:hidden;border-radius:4px}
+.gal img{width:100%;transition:transform .5s}
+.gal figure:hover img{transform:scale(1.04)}
+.gal figcaption{position:absolute;inset:auto 0 0 0;margin:0;padding:2.4rem 1rem .8rem;color:#fff;font-size:1rem;opacity:1;background:linear-gradient(transparent,rgba(58,10,20,.92))}
+.gal figcaption b{display:block;font-family:"Cormorant Garamond",serif;font-size:1.35rem;font-weight:600}
+/* animatic */
+.anim{display:grid;grid-template-columns:minmax(0,460px) 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.anim video{width:100%;aspect-ratio:1;background:var(--vino-2);border-radius:50% 50% 6px 6px/28% 28% 6px 6px;border:6px solid var(--oro);object-fit:cover}
+/* proyecto */
+.proy{background:var(--crema)}
+.pgrid{display:grid;grid-template-columns:minmax(0,340px) 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.pgrid figure{position:sticky;top:90px}
+.pgrid img{border-radius:6px}
+dl{margin-top:1.6rem}
+dl div{display:grid;grid-template-columns:190px 1fr;gap:1rem;padding:1rem 0;border-top:1px solid rgba(91,15,31,.3)}
+dt{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:1.3rem;color:var(--vino);line-height:1.2}
+/* redes */
+.redes{background:var(--vino-2);color:var(--hueso);text-align:center}
+.redes h2{color:var(--hueso)}
+.redes .lead{margin-inline:auto}
+.soc{display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap;margin-top:2.2rem}
+.soc a{display:flex;align-items:center;gap:.9rem;padding:1rem 1.6rem;border:1.5px solid var(--oro);border-radius:999px;text-decoration:none;transition:background .2s,color .2s}
+.soc a:hover{background:var(--hueso);color:var(--vino)}
+.soc svg{width:28px;height:28px;fill:currentColor}
+.soc small{display:block;font-size:.8rem;opacity:.8;line-height:1.2}
+.soc strong{font-weight:500;line-height:1.2}
+footer{background:#24060c;color:var(--crema);text-align:center;padding:2.4rem 0;font-size:.9rem}
+footer img{height:84px;margin:0 auto .8rem}
+@media(max-width:900px){
+ nav{position:absolute;top:68px;left:0;right:0;background:var(--vino-2);display:none;padding:1rem 4%}
+ nav.open{display:block}nav ul{flex-direction:column;gap:.9rem}
+ .burger{display:block}
+ .hero>img{aspect-ratio:16/8}
+ .hero .in{position:static;width:100%;background:var(--hueso);padding:2rem 6% 2.4rem;animation:none}
+ .hero h1{font-size:2rem}.hero p{font-size:1.02rem}
+ .hist,.anim,.pgrid{grid-template-columns:1fr}
+ .pgrid figure{position:static;max-width:320px}
+ dl div{grid-template-columns:1fr;gap:.2rem}
+}
+
+.mv{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem);margin-top:clamp(3rem,6vw,5rem)}
+.mv div{border-top:3px solid var(--vino);padding-top:1rem}
+.mv h3{font-size:2rem;color:var(--vino);margin-bottom:.4rem}
+.org{margin-top:clamp(3rem,6vw,5rem);text-align:center}
+.org h3{font-size:2rem;color:var(--vino);margin-bottom:1.6rem}
+.org .box{display:inline-block;background:var(--vino);color:var(--hueso);padding:.8rem 1.4rem;border-radius:6px;min-width:220px}
+.org .box b{display:block;font-family:"Cormorant Garamond",serif;font-size:1.3rem;font-weight:700;line-height:1.2}
+.org .box small{opacity:.85}
+.org .lv{display:flex;justify-content:center;gap:1.2rem;position:relative;padding-top:2rem;margin-top:0}
+.org .lv::before{content:"";position:absolute;top:0;left:50%;height:1rem;border-left:2px solid var(--oro)}
+.org .lv::after{content:"";position:absolute;top:1rem;left:16.6%;right:16.6%;border-top:2px solid var(--oro)}
+.org .lv .box{position:relative;background:var(--crema);color:var(--tinta);flex:1;min-width:0;border:1.5px solid var(--oro)}
+.org .lv .box b{color:var(--vino)}
+.org .lv .box::before{content:"";position:absolute;top:-1rem;left:50%;height:1rem;border-left:2px solid var(--oro)}
+.add{margin-top:.5rem;background:var(--hueso);color:var(--vino);border:0;border-radius:999px;padding:.45rem 1rem;font:500 .9rem Jost,sans-serif;cursor:pointer}
+.add:hover{background:var(--oro);color:#fff}
+.fab{position:fixed;right:1rem;bottom:1rem;z-index:30;display:flex;align-items:center;gap:.6rem;background:#25D366;color:#073b1b;border:0;border-radius:999px;padding:.8rem 1.2rem;font:600 1rem Jost,sans-serif;cursor:pointer;box-shadow:0 8px 24px -8px rgba(0,0,0,.5)}
+.fab svg{width:24px;height:24px;fill:currentColor}
+.fab span{background:var(--vino);color:#fff;border-radius:999px;min-width:1.5rem;height:1.5rem;display:grid;place-items:center;font-size:.85rem}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(400px,100%);background:var(--hueso);z-index:40;transform:translateX(105%);transition:transform .3s;display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(0,0,0,.35)}
+.drawer.open{transform:none}
+.drawer header{position:static;background:var(--vino);color:var(--hueso);padding:1rem 1.2rem;display:flex;justify-content:space-between;align-items:center}
+.drawer h2{color:var(--hueso);font-size:1.7rem;margin:0}
+.drawer header button{background:none;border:0;color:var(--hueso);font-size:1.8rem;cursor:pointer}
+#items{flex:1;overflow:auto;padding:1rem 1.2rem;list-style:none}
+#items li{display:flex;justify-content:space-between;align-items:center;gap:.8rem;padding:.7rem 0;border-bottom:1px solid rgba(91,15,31,.25)}
+.q{display:flex;align-items:center;gap:.5rem;white-space:nowrap}
+.q button{width:1.9rem;height:1.9rem;border-radius:50%;border:1.5px solid var(--vino);background:none;color:var(--vino);font-size:1.1rem;cursor:pointer}
+.empty{opacity:.7;padding:1rem 0}
+.dfoot{padding:1rem 1.2rem;border-top:1px solid rgba(91,15,31,.25)}
+.dfoot label{font-size:.9rem;display:block;margin-bottom:.3rem}
+.dfoot select{width:100%;padding:.6rem;border:1.5px solid var(--vino);border-radius:6px;background:#fff;font:inherit;margin-bottom:.8rem}
+.dfoot .btn{width:100%;text-align:center;background:#25D366;border-color:#25D366;color:#073b1b;font-weight:600}
+.dfoot .btn[aria-disabled=true]{opacity:.5;pointer-events:none}
+.shade{position:fixed;inset:0;background:rgba(36,6,12,.5);z-index:35;display:none}.shade.open{display:block}
+@media(max-width:900px){.mv{grid-template-columns:1fr}
+ .org .lv{flex-direction:column;align-items:center;padding-top:1rem}.org .lv::after{display:none}.org .lv::before{display:none}
+ .org .lv .box{width:100%;max-width:340px;flex:none}.org .lv .box::before{display:none}
+ .org .lv .box+.box{margin-top:.2rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+<a href="#inicio" aria-label="Velvet Crumb Bakery, inicio"><img src="assets/logo-hueso.png" alt="Logo Velvet Crumb Bakery"></a>
+<button class="burger" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+<nav aria-label="Principal"><ul>
+<li><a href="#historia">Historia</a></li><li><a href="#carta">Carta</a></li><li><a href="#animatic">Animatic</a></li><li><a href="#proyecto">Proyecto</a></li><li><a href="#redes">Redes</a></li>
+</ul></nav></div></header>
+
+<main id="inicio">
+<div class="hero">
+<img src="assets/banner.jpg" alt="Pasteles, cupcakes color vino, macarons y galletas sobre terciopelo">
+<div class="in">
+<img src="assets/logo-vino.png" alt="Velvet Crumb Bakery">
+<h1>Repostería con elegancia, contada en digital</h1>
+<p>Proyecto productivo del programa de formación en Integración de Contenidos Digitales.</p>
+<div class="go"><a class="btn" href="#carta">Ver la carta</a><a class="btn alt" href="#animatic">Ver el animatic</a></div>
+</div></div>
+
+<section id="historia"><div class="wrap hist">
+<div>
+<h2>Historia de marca</h2>
+<p class="lead">Velvet Crumb nació de un sueño y de una receta perfeccionada con paciencia. Su símbolo, el cisne, resume lo que buscamos en cada postre: gracia, calma y delicadeza.</p>
+<ol class="steps">
+<li><b>El sueño</b><br>Todo empezó con una visión: tener una repostería propia.</li>
+<li><b>La perfección</b><br>Probamos y ajustamos la receta secreta hasta que quedó como imaginábamos.</li>
+<li><b>La inspiración</b><br>La elegancia natural del cisne definió el estilo de la marca.</li>
+<li><b>La creación</b><br>Nuestro primer local abrió sus puertas.</li>
+<li><b>La alegría</b><br>Llevamos felicidad a cada bocado.</li>
+<li><b>La marca</b><br>Hecho con amor y elegancia.</li>
+</ol></div>
+<figure><img src="assets/historia-de-marca.jpg" alt="Storyboard de la historia de marca Velvet Crumb Bakery en seis cuadros" loading="lazy"><figcaption>Storyboard de la historia de marca, elaborado en el proyecto.</figcaption></figure>
+</div>
+<div class="wrap">
+<div class="mv">
+<div><h3>Misión</h3><p>Elaborar postres artesanales con ingredientes de calidad y presentación cuidada, para llevar alegría a cada celebración y a cada día, y dar a conocer nuestra marca con contenidos digitales creativos.</p></div>
+<div><h3>Visión</h3><p>Ser en 2030 una repostería reconocida en nuestra región por su sabor, su elegancia y su presencia en redes sociales, con un equipo que crece junto a sus clientes.</p></div>
+</div>
+<div class="org">
+<h3>Organigrama</h3>
+<div class="box"><b>Gerencia general</b><small>Dirección y decisiones del emprendimiento</small></div>
+<div class="lv">
+<div class="box"><b>Producción y repostería</b><small>Recetas, hornos y control de calidad</small></div>
+<div class="box"><b>Contenido digital y redes</b><small>Foto, video, diseño y publicaciones</small></div>
+<div class="box"><b>Ventas y atención</b><small>Pedidos por WhatsApp y entregas</small></div>
+</div></div></div>
+</section>
+
+<section id="carta" class="carta"><div class="wrap">
+<h2>Nuestra carta</h2>
+<p class="lead">Tortas, galletas y postres en vaso, hechos para compartir y para fotografiar.</p>
+<div class="gal">
+<figure><img src="assets/red-velvet.jpg" alt="Torta red velvet con crema y frutos rojos" loading="lazy"><figcaption><b>Torta red velvet</b>Crema suave y frutos rojos<button class="add" data-n="Torta red velvet">Agregar al carrito</button></figcaption></figure>
+<figure><img src="assets/carrot-cake.jpg" alt="Torta de zanahoria con crema y nueces" loading="lazy"><figcaption><b>Torta de zanahoria</b>Con crema y nueces pecanas<button class="add" data-n="Torta de zanahoria">Agregar al carrito</button></figcaption></figure>
+<figure><img src="assets/cheesecake-arandanos.jpg" alt="Cheesecake con salsa de arándanos" loading="lazy"><figcaption><b>Cheesecake de arándanos</b>Fría y cremosa<button class="add" data-n="Cheesecake de arándanos">Agregar al carrito</button></figcaption></figure>
+<figure><img src="assets/brownies-frutos-rojos.jpg" alt="Brownies con crema y frutos rojos" loading="lazy"><figcaption><b>Brownies con frutos rojos</b>Chocolate intenso y fruta fresca<button class="add" data-n="Brownies con frutos rojos">Agregar al carrito</button></figcaption></figure>
+<figure><img src="assets/galletas-avena.jpg" alt="Galletas de avena con chips de chocolate y frutos rojos" loading="lazy"><figcaption><b>Galletas de avena</b>Chocolate, almendras y frutos rojos<button class="add" data-n="Galletas de avena">Agregar al carrito</button></figcaption></figure>
+<figure><img src="assets/cake-pops.jpg" alt="Cake pops de chocolate con confeti" loading="lazy"><figcaption><b>Cake pops</b>Chocolate y confeti<button class="add" data-n="Cake pops">Agregar al carrito</button></figcaption></figure>
+<figure><img src="assets/parfait-yogurt.jpg" alt="Vasitos de yogur con granola y frutas" loading="lazy"><figcaption><b>Parfait de yogur</b>Granola, fruta y miel<button class="add" data-n="Parfait de yogur">Agregar al carrito</button></figcaption></figure>
+<figure><img src="assets/postre-chocolate.jpg" alt="Postre de chocolate con frutos rojos y flores comestibles" loading="lazy"><figcaption><b>Postre de chocolate</b>Con bombón, frutos rojos y flores<button class="add" data-n="Postre de chocolate">Agregar al carrito</button></figcaption></figure>
+</div></div></section>
+
+<section id="animatic"><div class="wrap anim">
+<video controls preload="metadata" poster="assets/animatic-poster.jpg" playsinline><source src="assets/animatic-velvet.mp4" type="video/mp4">Tu navegador no reproduce video.</video>
+<div>
+<h2>El animatic de la marca</h2>
+<p class="lead">Un animatic es un storyboard con movimiento y sonido. Nos sirvió para probar el ritmo y el mensaje del video antes de producir la versión final.</p>
+<p style="margin-top:1rem">Dura 15 segundos y está pensado para Instagram Reels, TikTok y WhatsApp.</p>
+</div></div></section>
+
+<section id="proyecto" class="proy"><div class="wrap pgrid">
+<figure><img src="assets/collage.jpg" alt="Collage de postres de Velvet Crumb Bakery" loading="lazy"></figure>
+<div>
+<h2>Del emprendimiento a los contenidos</h2>
+<p class="lead">Velvet Crumb Bakery es un emprendimiento real que usamos como proyecto productivo. En él aplicamos lo aprendido en la media técnica para crear y publicar contenidos digitales.</p>
+<dl>
+<div><dt>Identidad visual</dt><dd>Logo, paleta vino tinto y hueso, tipografías y piezas gráficas coherentes.</dd></div>
+<div><dt>Fotografía de producto</dt><dd>Imágenes de la carta, con luz, fondo y composición cuidados.</dd></div>
+<div><dt>Guion y video</dt><dd>Storyboard de la historia de marca y animatic listo para redes.</dd></div>
+<div><dt>Diseño web</dt><dd>Esta página responsiva, que integra texto, imagen y video.</dd></div>
+<div><dt>Redes sociales</dt><dd>Publicaciones adaptadas a Instagram, TikTok y WhatsApp.</dd></div>
+</dl></div>
+</div></section>
+
+<section id="redes" class="redes"><div class="wrap">
+<h2>Encuéntranos en redes</h2>
+<p class="lead">Mira los postres del día, los detrás de cámaras y haz tu pedido por WhatsApp.</p>
+<div class="soc">
+<a href="https://www.instagram.com/velvetcbrum_bakery11" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Zm5.2-3.2a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z"/></svg><span><small>Instagram</small><strong>@velvetcbrum_bakery11</strong></span></a>
+<a href="https://www.tiktok.com/@velvetcbrum_bakery11" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 2h-3.2v12.4a2.7 2.7 0 1 1-2.7-2.7c.3 0 .6 0 .8.1V8.5a6 6 0 1 0 5.1 5.9V8.7a7.2 7.2 0 0 0 4.2 1.4V6.9a4.2 4.2 0 0 1-4.2-4.9Z"/></svg><span><small>TikTok</small><strong>@velvetcbrum_bakery11</strong></span></a>
+<a href="https://wa.me/573213802050" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 1.8a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-2.9.8.8-2.8-.2-.3A8.2 8.2 0 0 1 12 3.8Zm-3 4c-.2 0-.5.1-.7.4-.3.3-1 1-1 2.400s1 2.800 1.200 3c.1.200 2 3.100 4.900 4.300 2.400 1 2.900.8 3.400.7.500-.1 1.700-.7 1.900-1.400.2-.7.2-1.200.2-1.400l-.5-.3-1.700-.8c-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100-.3-.1-1.100-.4-2.100-1.300-.8-.7-1.300-1.500-1.500-1.800-.1-.3 0-.4.100-.5l.4-.5.3-.4c.1-.2 0-.3 0-.5l-.8-1.900c-.2-.5-.4-.5-.6-.5H9Z"/></svg><span><small>WhatsApp</small><strong>321 380 2050</strong></span></a>
+<a href="https://wa.me/573147376012" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 1.8a8.2 8.2 0 1 1-4.2 15.3l-.3-.2-2.9.8.8-2.8-.2-.3A8.2 8.2 0 0 1 12 3.8Z"/></svg><span><small>WhatsApp</small><strong>314 737 6012</strong></span></a>
+</div></div></section>
+</main>
+
+<footer><div class="wrap">
+<img src="assets/logo-hueso.png" alt="Velvet Crumb Bakery">
+<p>Proyecto productivo del programa de formación en Integración de Contenidos Digitales.<br>Hecho con amor y elegancia.</p>
+<p style="margin-top:.6rem;opacity:.7">&copy; 2026 Velvet Crumb Bakery</p>
+</div></footer>
+<script>
+var b=document.querySelector('.burger'),n=document.querySelector('nav');
+b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+n.addEventListener('click',function(e){if(e.target.tagName==='A'){n.classList.remove('open');b.setAttribute('aria-expanded',false)}});
+</script>
+
+<button class="fab" id="fab" aria-label="Abrir carrito de compras"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM1 2v2h2l3.600 7.600-1.400 2.400A2 2 0 0 0 7 17h12v-2H7.400l1.100-2h7.500a2 2 0 0 0 1.700-1L21.300 5H5.200l-.9-3H1Z"/></svg>Carrito <span id="cnt">0</span></button>
+<div class="shade" id="shade"></div>
+<aside class="drawer" id="drawer" aria-label="Carrito de compras" aria-hidden="true">
+<header><h2>Tu pedido</h2><button id="close" aria-label="Cerrar carrito">&times;</button></header>
+<ul id="items"></ul>
+<div class="dfoot"><label for="num">Enviar el pedido a</label>
+<select id="num"><option value="573213802050">WhatsApp 321 380 2050</option><option value="573147376012">WhatsApp 314 737 6012</option></select>
+<a class="btn" id="send" href="#" target="_blank" rel="noopener" aria-disabled="true">Enviar pedido por WhatsApp</a></div>
+</aside>
+<script>
+(function(){
+var cart={},$=function(i){return document.getElementById(i)},dr=$('drawer'),sh=$('shade');
+function open(o){dr.classList.toggle('open',o);sh.classList.toggle('open',o);dr.setAttribute('aria-hidden',!o)}
+function render(){
+ var ks=Object.keys(cart),n=0,ul=$('items');ul.innerHTML='';
+ ks.forEach(function(k){n+=cart[k];var li=document.createElement('li');
+  li.innerHTML='<span></span><div class="q"><button aria-label="Quitar uno">&minus;</button><b>'+cart[k]+'</b><button aria-label="Añadir uno">+</button></div>';
+  li.firstChild.textContent=k;var b=li.querySelectorAll('button');
+  b[0].onclick=function(){if(--cart[k]<1)delete cart[k];render()};b[1].onclick=function(){cart[k]++;render()};ul.appendChild(li)});
+ if(!ks.length)ul.innerHTML='<li class="empty">Aún no has agregado productos. Elige tus postres en la carta.</li>';
+ $('cnt').textContent=n;sync()}
+function sync(){
+ var ks=Object.keys(cart),a=$('send');
+ if(!ks.length){a.setAttribute('aria-disabled','true');a.href='#';return}
+ var m='Hola Velvet Crumb Bakery, quiero hacer este pedido:\n'+ks.map(function(k){return '- '+cart[k]+' x '+k}).join('\n')+'\n¿Me confirman disponibilidad y valor? Gracias.';
+ a.href='https://wa.me/'+$('num').value+'?text='+encodeURIComponent(m);a.removeAttribute('aria-disabled')}
+document.querySelectorAll('.add').forEach(function(b){b.onclick=function(){var k=b.dataset.n;cart[k]=(cart[k]||0)+1;render();b.textContent='¡Agregado!';setTimeout(function(){b.textContent='Agregar al carrito'},1200)}});
+$('fab').onclick=function(){open(true)};$('close').onclick=$('shade').onclick=function(){open(false)};
+$('num').onchange=sync;document.addEventListener('keydown',function(e){if(e.key==='Escape')open(false)});render();
+})();
+</script>
+</body>
+</html>
